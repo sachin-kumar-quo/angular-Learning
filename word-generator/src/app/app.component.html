@@ -1,0 +1,18 @@
+<div class="container  mt-5 text-center">
+  <div class="text-center display-3 text-white m-3">
+    Word Limit: {{ limit }}
+  </div>
+  <input
+    type="range"
+    min="1"
+    max="50"
+    value="{{ limit }}"
+    class="slider w-50 form-control-range"
+    (change)="handleSlidechange($event.target)"
+  />
+  <br/>
+  <button (click)="generateWords()" class="btn btn-info">Generate Words</button>
+  <div *ngIf="words" class="card card-body">
+    <p class="display-4">{{words}}</p>
+  </div>
+</div>

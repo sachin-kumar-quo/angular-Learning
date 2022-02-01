@@ -1,0 +1,23 @@
+<div class="card user-card">
+  <div class="background d-flex justify-content-center">
+    <img [src]="user.avatar_url" class="img-fluid rounded-circle profile-pic border-2 border-white" alt="" height="150" />
+  </div>
+  <div class="card-body ">
+    <h5 class="card-title">{{user.name}}</h5>
+    <p class="card-text">
+      {{user.bio}}
+    </p>
+    <p class="card-text">
+      Location: {{user.location}}
+    </p>
+    <p class="card-text">
+      Company: {{user.company}}
+    </p>
+    <p class="card-text">
+      Repos: {{user.public_repos}}
+    </p>
+    <p class="card-text">
+      Updated At: {{user.updated_at | date:'short'}}
+    </p>
+  </div>
+</div>

@@ -1,0 +1,96 @@
+<div class="container">
+  <div class="card bg-dark text-white m-3 mt-5">
+    <h5 class="card-header text-center">
+      <img src="../assets/lco.png" alt="" width="30" height="30" class="mr-2" />
+      LCO Signup Form
+    </h5>
+    <div class="card-body">
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="form-group col-6">
+            <label>First Name</label>
+            <input
+              formControlName="firstName"
+              type="text"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['firstName'].errors }"
+            />
+            <div *ngIf="f['firstName'].touched && f['firstName'].errors" class="text-warning">
+              <div>First Name is required</div>
+            </div>
+          </div>
+          <div class="form-group col-6">
+            <label>Last Name</label>
+            <input
+              formControlName="lastName"
+              type="text"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['lastName'].errors }"
+            />
+            <div *ngIf="f['lastName'].touched && f['lastName'].errors"  class="text-warning">
+              <div>Last Name is required</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input formControlName="email" type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"/>
+          <div *ngIf="f['email'].touched && f['email'].errors"  class="text-warning">
+            <div *ngIf="f['email'].errors['required']">Email is required</div>
+            <div *ngIf="f['email'].errors['email']">Email must be a valid email address</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-lg-6">
+            <label>Password</label>
+            <input
+              formControlName="password"
+              type="password"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+            />
+            <div *ngIf="f['password'].touched && f['password'].errors"  class="text-warning">
+              <div *ngIf="f['password'].errors['required']">Password is required</div>
+              <div *ngIf="f['password'].errors['minlength']">Password must be at least 6 characters</div>
+            </div>
+          </div>
+          <div class="form-group col-lg-6">
+            <label>Confirm Password</label>
+            <input
+              formControlName="confirmPassword"
+              type="password"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['confirmPassword'].errors }"
+            />
+            <div *ngIf="f['confirmPassword'].touched && f['confirmPassword'].errors"  class="text-warning">
+              <div *ngIf="f['confirmPassword'].errors['required']">Confirm Password is required</div>
+              <div *ngIf="f['confirmPassword'].errors['mustmatch']">Passwords must match</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group form-check">
+          <input
+            formControlName="acceptTerms"
+            type="checkbox"
+            id="acceptTerms"
+            class="form-check-input"
+            [ngClass]="{ 'is-invalid': submitted && f['acceptTerms'].errors }"
+          />
+          <label for="acceptTerms" class="form-check-label"
+            >Accept Terms & Conditions</label
+          >
+          <div *ngIf="f['acceptTerms'].touched && f['acceptTerms'].errors"  class="text-warning">Accept Ts & Cs is required</div>
+        </div>
+        <div class="text-center">
+          <button class="btn btn-success btn-lg px-4 m-3">Register</button>
+          <button (click)="onReset()" class="btn btn-warning" type="reset">
+            Reset
+          </button>
+          <p class="text white">Value: {{ signupForm.value | json }}</p>
+          <p class="text white">Value: {{ signupForm.valid | json }}</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

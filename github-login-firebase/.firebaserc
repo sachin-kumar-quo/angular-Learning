@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "github-firebase-755a8": {
+      "hosting": {
+        "github-login-firebase": [
+          "github-firebase-755a8"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "github-firebase-755a8"
+  }
+}

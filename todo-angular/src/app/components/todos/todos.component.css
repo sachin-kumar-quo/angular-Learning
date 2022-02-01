@@ -1,0 +1,4 @@
+.completedTodo {
+  color: darkmagenta;
+  text-decoration: line-through;
+}
